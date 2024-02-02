@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<html >
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HPNY</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="canvas">Canvas is not supported in your browser.</canvas>
+    <video id="start" autoplay class="video">
+        <source src="main.mp4">
+    </video>
+    <div >
+        <img src="endstart.gif" alt="" id="end" class="video-grow">
+    </div>
+
+<script>  
+    const video = document.getElementById("end");
+    video.style.display = 'none';
+    document.getElementById("canvas").style.display = 'none';
+    const body = document.getElementById("start");
+
+    body.addEventListener("click", function(event) {
+        run();
+    });
+
+    function run(){
+        document.getElementById("start").style.display = "none";
+        document.getElementById("canvas").style.display = "block";
+        const sleep = (ms) => {
+        return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        (async () => {
+            document.getElementById("end").style.display = 'block';
+            await sleep(1000)
+            video.src='endend.gif';
+            await sleep(3500)
+            video.src='endend.png';
+        })()
+        
+        document.getElementById("end").style.display ="";
+    }
+
+
+</script>
+<script type="text/javascript" src="script.js"></script>  
+</body>
+</html>
